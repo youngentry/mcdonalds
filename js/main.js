@@ -1,29 +1,23 @@
 $(function () {
-  function video(videoClass, videoURL, containmentClass, startAtNum) {
+  function video(videoClass, videoURL, containmentClass, startAtTime, stopAtTime) {
     $(videoClass).YTPlayer({
       videoURL: videoURL,
       containment: containmentClass,
-      autoPlay: true,
+      autoplay: true,
       mute: true,
       startAt: 0,
+      stopAt: stopAtTime,
       opacity: 1,
       showControls: false,
       stopMovieOnBlur: false,
       playOnlyIfVisible: true,
-      startAt: startAtNum,
+      startAt: startAtTime,
     });
   }
-
-  video(".bgVideo01", "https://youtu.be/MyVoER9Q-xk", ".slider01");
-  video(".bgVideo02", "https://youtu.be/MNL6IMZEJ0g", ".slider02");
-  video(".bgVideo03", "https://youtu.be/u2hLpzjQgvc", ".slider03", 14);
-
-  $(".slider").slick({
-    arrows: false,
-    dots: true,
-  });
-
-  $(".slider").on("afterChange", function (e, s, c) {
+  video(".bgVideo01", "https://youtu.be/u2hLpzjQgvc", ".slider01", 16, 30);
+  video(".bgVideo02", "https://youtu.be/MNL6IMZEJ0g", ".slider02", 1, 15);
+  video(".bgVideo03", "https://youtu.be/MyVoER9Q-xk", ".slider03", 16, 30);
+  $(".mainSlider").on("afterChange", function (e, s, c) {
     if (c == 0) {
       $(".bgVideo01").YTPPlay();
       $(".bgVideo02").YTPPause();
@@ -37,5 +31,11 @@ $(function () {
       $(".bgVideo02").YTPPause();
       $(".bgVideo03").YTPPlay();
     }
+  });
+  $(".mainSlider").slick({
+    arrows: false,
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 15000,
   });
 });
