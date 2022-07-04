@@ -10,14 +10,29 @@
   justify-content: center;
   width: 100%;
   white-space: nowrap;
+  z-index: 999;
 }
 .header h1 {
+  position: relative;
   width: 106px;
+  z-index: 999;
+}
+.header h1::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 100%;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 998;
 }
 .header nav {
   display: flex;
   justify-content: space-between;
-  line-height: 140px;
+  line-height: 100px;
 }
 .header nav > ul {
   display: flex;
