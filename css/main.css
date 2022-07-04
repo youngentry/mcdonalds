@@ -8,8 +8,7 @@
 .header {
   display: flex;
   justify-content: center;
-  background: skyblue;
-  border-bottom: 1px solid #ddd;
+  width: 100%;
   white-space: nowrap;
 }
 .header h1 {
@@ -19,16 +18,15 @@
   display: flex;
   justify-content: space-between;
   line-height: 140px;
-  background: salmon;
 }
 .header nav > ul {
   display: flex;
-  font-size: 19px;
-  font-weight: 700;
+  font-size: 21px;
+  font-weight: 500;
   gap: 50px;
 }
 .header nav > .nav-right {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 500;
 }
 /* 
@@ -38,18 +36,17 @@
 /* 
 .main_visual;;
  */
-.main_visual {
-  background: #ddd;
+.bgVideo {
+  height: calc(100vh - 140px);
 }
 /* 
 .main_visual;;
- */
+*/
 
 /* 
 .c01;;
  */
 .c01 {
-  background: #fff;
 }
 /* 
 .c01;;
