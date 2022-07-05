@@ -1,4 +1,15 @@
 $(function () {
+  $("html, body").on("mousewheel", function (e) {
+    var d = e.originalEvent.deltaY;
+    if (d > 0) {
+      $(".header").addClass("on");
+      // console.log("내림");
+    } else if (d < 0) {
+      $(".header").removeClass("on");
+      // console.log("올림");
+    }
+  });
+
   function video(videoClass, videoURL, containmentClass, startAtTime, stopAtTime) {
     $(videoClass).YTPlayer({
       videoURL: videoURL,

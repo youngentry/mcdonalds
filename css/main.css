@@ -1,23 +1,29 @@
 .container {
+  width: 1200px;
   margin: 0 auto;
 }
 /* 
 .header;;
  */
 .header {
+  position: fixed;
   display: flex;
+  top: 0;
   justify-content: center;
   width: 100%;
   white-space: nowrap;
+  background: #fff;
+  border-bottom: 2px solid #ffbc0d;
   z-index: 999;
+  transition: 0.5s;
 }
-.header .container {
-  width: 1200px;
+.header.on {
+  top: -100px;
 }
 .header h1 {
   position: relative;
   width: 106px;
-  transform: translateY(25px);
+  transform: translateY(20px);
   z-index: 999;
 }
 .header h1::before {
@@ -25,12 +31,15 @@
   position: absolute;
   top: calc(100% - 30px);
   left: 50%;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(10px);
   width: 160%;
-  height: 50%;
+  height: 45%;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   background: #fff;
+  border-right: 2px solid #ffbc0d;
+  border-bottom: 2px solid #ffbc0d;
+  border-left: 2px solid #ffbc0d;
   z-index: -1;
 }
 .header nav {
@@ -125,7 +134,7 @@
 
 .meal h2,
 .meal .mealSliderM,
-.meal .smenus p {
+.meal .sMenu p {
   padding-left: 15px;
 }
 
@@ -150,7 +159,7 @@
   font-size: 21px;
   font-weight: 300;
 }
-.meal .smenus figure {
+.meal .sMenu figure {
   padding: 0 15px;
   margin-bottom: 10px;
 }
@@ -172,10 +181,7 @@
 .process {
   padding-bottom: 100px;
 }
-.process .container {
-  width: 1200px;
-}
-.process .processContent {
+.process .processContents {
   display: flex;
   gap: 30px;
 }
@@ -189,7 +195,7 @@
   background: beige;
   padding: 0 50px;
 }
-.processContent .rows img {
+.processContents .rows img {
   width: 100px;
 }
 /* 
@@ -203,16 +209,14 @@
   background: #fff;
   padding-bottom: 100px;
 }
-.promotion .container {
-  width: 1200px;
-}
 .promotion .top,
 .promotion .bottom {
   display: flex;
   justify-content: space-between;
   gap: 30px;
 }
-.promotion .top {
+.promotion .top,
+.promotion .bottom {
   padding-bottom: 30px;
 }
 .promotion .pg01 {
@@ -220,6 +224,15 @@
 }
 .promotion .pg02 {
   display: none;
+}
+.promotion .pageNums {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.promotion .pageNums > a {
+  padding: 10px;
+  background: #ddd;
 }
 /* 
 .promotion;;
@@ -230,6 +243,10 @@
  */
 .brands {
   background: #ddd;
+  padding-bottom: 100px;
+}
+.brands img {
+  border-radius: 11px;
 }
 /* 
 .brands;;
