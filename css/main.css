@@ -18,22 +18,22 @@
   transition: 0.5s;
 }
 .header.on {
-  top: -100px;
+  top: -140px;
 }
 .header h1 {
   position: relative;
   width: 106px;
-  transform: translateY(7px);
+  transform: translateY(15px);
   z-index: 999;
 }
 .header h1::before {
   content: "";
   position: absolute;
-  top: calc(100% - 30px);
+  top: calc(100% - 23px);
   left: 50%;
-  transform: translateX(-50%) translateY(23px);
+  transform: translateX(-50%) translateY(9px);
   width: 160%;
-  height: 35%;
+  height: 30%;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   background: #fff;
@@ -191,9 +191,20 @@
   background: beige;
   padding: 0 50px;
 }
-.processContents .rows img {
+.process .rows img {
   width: 100px;
 }
+.process .rowSlider {
+  padding: 30px 0;
+}
+.process .rowSlider01,
+.process .rowSlider03 {
+  margin-left: 90px;
+}
+.process .rowSlider02 {
+  margin-right: 90px;
+}
+
 /* 
 .process;;
  */

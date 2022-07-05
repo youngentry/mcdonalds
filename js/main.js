@@ -63,13 +63,16 @@ $(function () {
   });
   $(".rowSlider01").slick({
     slidesToShow: 3,
+    arrows: false,
   });
   $(".rowSlider02").slick({
     slidesToShow: 3,
     rtl: true,
+    arrows: false,
   });
   $(".rowSlider03").slick({
     slidesToShow: 3,
+    arrows: false,
   });
 
   $(".textSlider .slick-prev").on("click", () => {
