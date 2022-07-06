@@ -81,7 +81,7 @@ h2 {
 .mainVisual .bgVideo {
   height: calc(100vh - 100px);
 }
-.mainVisual .sliderBtn i {
+.mainVisual .sliderBtn {
   position: absolute;
   bottom: 10%;
   right: 10%;
@@ -90,18 +90,25 @@ h2 {
   font-size: 70px;
   color: rgba(255, 255, 255, 0.7);
   opacity: 0.8;
-  transition: 0.5s;
 }
-.mainVisual .sliderBtn:hover i {
+.mainVisual .sliderBtn i:hover {
   color: #fff;
 }
 
-.mainVisual .sliderBtn i:nth-child(1),
-.mainVisual .sliderBtn.on i:nth-child(2) {
+.mainVisual .videoVol i:nth-child(1),
+.mainVisual .videoVol.on i:nth-child(2) {
   display: block;
 }
-.mainVisual .sliderBtn i:nth-child(2),
-.mainVisual .sliderBtn.on i:nth-child(1) {
+.mainVisual .videoVol i:nth-child(2),
+.mainVisual .videoVol.on i:nth-child(1) {
+  display: none;
+}
+.mainVisual .videoPlay i:nth-child(1),
+.mainVisual .videoPlay.on i:nth-child(2) {
+  display: block;
+}
+.mainVisual .videoPlay i:nth-child(2),
+.mainVisual .videoPlay.on i:nth-child(1) {
   display: none;
 }
 
@@ -143,7 +150,7 @@ h2 {
   display: none;
 }
 /* 
-.main_visual;;*/
+.main_visual;; */
 
 /* 
 .meal;; */

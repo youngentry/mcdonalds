@@ -21,7 +21,7 @@ $(function () {
       opacity: 1,
       showControls: false,
       stopMovieOnBlur: false,
-      playOnlyIfVisible: true,
+      playOnlyIfVisible: false,
       startAt: startAtTime,
     });
   }
@@ -33,6 +33,18 @@ $(function () {
     $(`.bgVideo0${c + 1}`).YTPPlay();
     $(`.bgVideo0${((c + 1) % 3) + 1}`).YTPPause();
     $(`.bgVideo0${((c + 2) % 3) + 1}`).YTPPause();
+    $(".videoPlay").removeClass("on");
+  });
+  $(".videoPlay").on("click", function () {
+    if ($(".videoPlay").hasClass("on")) {
+      $(".bgVideo01").YTPPause();
+      $(".bgVideo02").YTPPause();
+      $(".bgVideo03").YTPPause();
+    } else {
+      $(".bgVideo01").YTPPlay();
+      $(".bgVideo02").YTPPlay();
+      $(".bgVideo03").YTPPlay();
+    }
   });
 
   $(".mainSlider").slick({
@@ -43,8 +55,8 @@ $(function () {
     fade: true,
   });
 
-  $(".sliderBtn").on("click", function () {
-    $(this).toggleClass("on");
+  $(".sliderBtn i").on("click", function () {
+    $(this).parent().toggleClass("on");
   });
 
   $(".mealSliderM").slick({
@@ -53,6 +65,7 @@ $(function () {
     fade: true,
     arrows: false,
     swipe: false,
+    waitForAnimate: false,
   });
   $(".mealSliderS").slick({
     asNavFor: ".mealSliderM",
@@ -61,19 +74,19 @@ $(function () {
     focusOnSelect: true,
   });
 
-  $(".textSlider").slick({
+  $(".process .textSlider").slick({
     slidesToShow: 1,
   });
-  $(".rowSlider01").slick({
+  $(".process .rowSlider01").slick({
     slidesToShow: 3,
     arrows: false,
   });
-  $(".rowSlider02").slick({
+  $(".process .rowSlider02").slick({
     slidesToShow: 3,
     rtl: true,
     arrows: false,
   });
-  $(".rowSlider03").slick({
+  $(".process .rowSlider03").slick({
     slidesToShow: 3,
     arrows: false,
   });
