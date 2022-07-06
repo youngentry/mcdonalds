@@ -51,11 +51,14 @@ $(function () {
     asNavFor: ".mealSliderS",
     slidesToShow: 1,
     fade: true,
+    arrows: false,
+    swipe: false,
   });
   $(".mealSliderS").slick({
     asNavFor: ".mealSliderM",
     slidesToShow: 5,
     swipeToSlide: true,
+    focusOnSelect: true,
   });
 
   $(".textSlider").slick({
@@ -86,4 +89,20 @@ $(function () {
     $(".rowSlider03").slick("slickNext");
   });
   $(".textSlider .slick-next").on("click", () => {});
+
+  $(".pageNums li a").on("click", function (e) {
+    e.preventDefault();
+    $(this).parent().siblings().removeClass("on");
+    $(this).parent().addClass("on");
+    var idx = $(this).parent().index();
+    $(".promoPages>div").removeClass("on");
+    $(".promoPages>div").eq(idx).addClass("on");
+  });
+
+  $(window).on("scroll", () => {
+    var screenHeight = $(window).scrollTop();
+    // console.log(screenHeight);
+    screenHeight >= 1600 ? $(".promoPages .top li").addClass("on") : $(".promoPages .top li").removeClass("on");
+    screenHeight >= 1900 ? $(".promoPages .bottom li").addClass("on") : $(".promoPages .bottom li").removeClass("on");
+  });
 });
