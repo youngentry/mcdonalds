@@ -92,14 +92,10 @@ $(function () {
   });
 
   $(".textSlider .slick-prev").on("click", () => {
-    $(".rowSlider01").slick("slickPrev");
-    $(".rowSlider02").slick("slickPrev");
-    $(".rowSlider03").slick("slickPrev");
+    $(".rowSlider01, .rowSlider02, .rowSlider03").slick("slickPrev");
   });
   $(".textSlider .slick-next").on("click", () => {
-    $(".rowSlider01").slick("slickNext");
-    $(".rowSlider02").slick("slickNext");
-    $(".rowSlider03").slick("slickNext");
+    $(".rowSlider01, .rowSlider02, .rowSlider03").slick("slickNext");
   });
   $(".textSlider .slick-next").on("click", () => {});
 
