@@ -26,25 +26,15 @@ $(function () {
     });
   }
 
-  video(".bgVideo01", "https://youtu.be/u2hLpzjQgvc", ".slider01", 16, 30, true);
-  video(".bgVideo02", "https://youtu.be/MNL6IMZEJ0g", ".slider02", 1, 15, false);
-  video(".bgVideo03", "https://youtu.be/MyVoER9Q-xk", ".slider03", 16, 30, false);
+  video(".bgVideo01", "https://youtu.be/u2hLpzjQgvc", ".slider01", 15, 30, true);
+  video(".bgVideo02", "https://youtu.be/MNL6IMZEJ0g", ".slider02", 0, 15, false);
+  video(".bgVideo03", "https://youtu.be/MyVoER9Q-xk", ".slider03", 15, 30, false);
+
   $(".mainSlider").on("afterChange", (e, s, c) => {
     $(`.bgVideo0${c + 1}`).YTPPlay();
     $(`.bgVideo0${((c + 1) % 3) + 1}`).YTPPause();
     $(`.bgVideo0${((c + 2) % 3) + 1}`).YTPPause();
-    $(".videoPlay").removeClass("on");
-  });
-  $(".videoPlay").on("click", function () {
-    if ($(".videoPlay").hasClass("on")) {
-      $(".bgVideo01").YTPPause();
-      $(".bgVideo02").YTPPause();
-      $(".bgVideo03").YTPPause();
-    } else {
-      $(".bgVideo01").YTPPlay();
-      $(".bgVideo02").YTPPlay();
-      $(".bgVideo03").YTPPlay();
-    }
+    $(".mainSlider .slick-dots li").eq(c).addClass("on").siblings().removeClass("on");
   });
 
   $(".mainSlider").slick({
@@ -54,6 +44,7 @@ $(function () {
     autoplaySpeed: 15000,
     fade: true,
   });
+  $(".mainSlider .slick-dots li").eq(0).addClass("on");
 
   $(".sliderBtn i").on("click", function () {
     $(this).parent().toggleClass("on");
@@ -111,7 +102,8 @@ $(function () {
   $(window).on("scroll", () => {
     var screenHeight = $(window).scrollTop();
     // console.log(screenHeight);
-    screenHeight >= 1600 ? $(".promoPages .top li").addClass("on") : $(".promoPages .top li").removeClass("on");
-    screenHeight >= 1900 ? $(".promoPages .bottom li").addClass("on") : $(".promoPages .bottom li").removeClass("on");
+    var brandHeight = 1600;
+    screenHeight >= brandHeight ? $(".promoPages .top li").addClass("on") : $(".promoPages .top li").removeClass("on");
+    screenHeight >= brandHeight + 300 ? $(".promoPages .bottom li").addClass("on") : $(".promoPages .bottom li").removeClass("on");
   });
 });
