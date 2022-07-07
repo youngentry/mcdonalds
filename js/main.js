@@ -35,6 +35,8 @@ $(function () {
     $(`.bgVideo0${((c + 1) % 3) + 1}`).YTPPause();
     $(`.bgVideo0${((c + 2) % 3) + 1}`).YTPPause();
     $(".mainSlider .slick-dots li").eq(c).addClass("on").siblings().removeClass("on");
+
+    $(".sliderBtn i").parent().removeClass("on");
   });
 
   $(".mainSlider").slick({
@@ -47,7 +49,12 @@ $(function () {
   $(".mainSlider .slick-dots li").eq(0).addClass("on");
 
   $(".sliderBtn i").on("click", function () {
-    $(this).parent().toggleClass("on");
+    var sliderBtn = $(this).parent();
+    sliderBtn.toggleClass("on");
+
+    var slider = sliderBtn.parent().parent();
+    var bgVideo = slider.children(".bgVideo");
+    sliderBtn.hasClass("on") ? bgVideo.YTPPause() : bgVideo.YTPPlay();
   });
 
   $(".mealSliderM").slick({
@@ -102,8 +109,14 @@ $(function () {
   $(window).on("scroll", () => {
     var screenHeight = $(window).scrollTop();
     // console.log(screenHeight);
-    var brandHeight = 1600;
-    screenHeight >= brandHeight ? $(".promoPages .top li").addClass("on") : $(".promoPages .top li").removeClass("on");
-    screenHeight >= brandHeight + 300 ? $(".promoPages .bottom li").addClass("on") : $(".promoPages .bottom li").removeClass("on");
+    var promoPageTop = $(".promoPages .top li");
+    var promoPageBottom = $(".promoPages .bottom li");
+    var promoHeight = 1600;
+    var promoGap = 300;
+    var brandStories = $(".story01, .story02, .story03, .story04");
+    var brandHeight = 2600;
+    screenHeight >= promoHeight ? promoPageTop.addClass("on") : promoPageTop.removeClass("on");
+    screenHeight >= promoHeight + promoGap ? promoPageBottom.addClass("on") : promoPageBottom.removeClass("on");
+    screenHeight >= brandHeight ? brandStories.addClass("on") : brandStories.removeClass("on");
   });
 });

@@ -21,7 +21,7 @@ h2 {
   width: 100%;
   white-space: nowrap;
   background: #fff;
-  border-bottom: 2px solid var(--main-y);
+  border-bottom: 3px solid var(--main-y);
   z-index: 999;
   transition: 0.5s;
 }
@@ -45,9 +45,9 @@ h2 {
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   background: #fff;
-  border-right: 2px solid var(--main-y);
-  border-bottom: 2px solid var(--main-y);
-  border-left: 2px solid var(--main-y);
+  border-right: 3px solid var(--main-y);
+  border-bottom: 3px solid var(--main-y);
+  border-left: 3px solid var(--main-y);
   z-index: 998;
 }
 .header nav {
@@ -138,7 +138,6 @@ h2 {
   font-size: 0;
   border-radius: 3px;
   transition: 0.3s;
-  transition-delay: 0.5s;
 }
 .mainSlider .slick-dots li:nth-child(1) {
   transform: translateX(-150%);
@@ -180,6 +179,12 @@ h2 {
   right: 30px;
   height: 2px;
   background: var(--main-y);
+}
+.meal h2 i {
+  padding-left: 10px;
+  vertical-align: 28%;
+  font-size: 15px;
+  cursor: pointer;
 }
 .meal p {
   font-size: 15px;
@@ -290,7 +295,7 @@ h2 {
   text-align: center;
   text-indent: calc(-30px);
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 500;
   color: #000;
 }
 .meal .mealSliderS .slick-arrow {
@@ -300,7 +305,7 @@ h2 {
   width: 40px;
   font-size: 0;
   background: none;
-  border: 2px solid #ddd;
+  border: 2px solid #999;
   border-top: none;
   border-right: none;
 }
@@ -383,15 +388,17 @@ h2 {
   height: 2px;
   background: var(--main-y);
 }
-.promotion .pg01 {
-  display: none;
+.promotion h2 i {
+  padding-left: 10px;
+  vertical-align: 28%;
+  font-size: 15px;
+  cursor: pointer;
 }
+.promotion .pg01,
 .promotion .pg02 {
   display: none;
 }
-.promotion .pg01.on {
-  display: block;
-}
+.promotion .pg01.on,
 .promotion .pg02.on {
   display: block;
 }
@@ -400,15 +407,25 @@ h2 {
   justify-content: center;
   gap: 30px;
 }
-.promotion .pageNums li > a {
+.promotion .pageNums li > a,
+.promotion .pageNums li > i {
   position: relative;
-  font-size: 17px;
-  padding: 5px 10px;
   border-radius: 10px;
   box-shadow: 0 0 3px #000;
   transition: 0.3s;
 }
-.promotion .pageNums li:hover a {
+.promotion .pageNums li > a {
+  font-size: 17px;
+  padding: 5px 10px;
+}
+.promotion .pageNums li > i {
+  font-size: 15px;
+  padding: 10px 5px;
+  transform: translateY(-9px);
+}
+
+.promotion .pageNums li:hover a,
+.promotion .pageNums li:hover i {
   color: var(--main-y);
 }
 .promotion .pageNums li.on {
@@ -421,6 +438,7 @@ h2 {
 .promotion .pageNums li div {
   position: absolute;
   opacity: 0;
+  visibility: hidden;
   top: 50%;
   left: 110%;
   padding: 5px 10px 8px;
@@ -433,6 +451,7 @@ h2 {
   font-size: 15px;
   color: #000;
   opacity: 1;
+  visibility: visible;
 }
 .promoPages li {
   cursor: pointer;
@@ -501,79 +520,109 @@ h2 {
 .story h2 {
   writing-mode: tb-rl;
   position: absolute;
-  font-size: 160px;
+  font-size: 190px;
   font-weight: 900;
   color: #ffbc0d;
-  letter-spacing: 0.0805em;
+  letter-spacing: -0.0234em;
   white-space: nowrap;
   opacity: 0.6;
-  transform: translateY(-50px);
+  transform: translateY(-50px) translateX(-11px);
+  cursor: default;
 }
-/* .story h2::after {
-  content: "";
-  position: absolute;
-  bottom: 30px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--main-y);
-} */
 .storyContents {
   position: relative;
 }
 .story img {
   border-radius: 11px;
+  transition: 0.2s;
 }
 .story .text strong {
   font-size: 36px;
   font-weight: 500;
   letter-spacing: -0.022em;
 }
-.story01,
-.story02,
-.story03,
-.story04 {
+.stories {
+  position: relative;
+  cursor: pointer;
+  color: #999;
+  opacity: 0;
+  transition: 0.5s;
+}
+.stories.on {
+  opacity: 1;
+}
+.stories .text {
   position: absolute;
-}
-.storyContents .text {
   padding: 4px;
+  transition: 0.4s ease-in-out;
 }
-
 .story01 {
-  top: 30px;
+  top: 80px;
+  left: 100px;
+}
+.story01.on {
   left: 200px;
 }
-
+.stories:hover img {
+  box-shadow: 3px 3px 10px #444;
+}
+.stories:hover .text {
+  color: #000;
+}
+.story01 .text {
+  top: -43px;
+  left: 0;
+}
+.story01:hover .text {
+  left: 177px;
+}
 .story02 {
-  position: relative;
-  top: 32px;
+  bottom: 420px;
   left: 607px;
+  transition-delay: 0.25s;
+}
+.story02.on {
+  bottom: 320px;
 }
 .story02 .text {
-  position: absolute;
   transform: rotate(90deg);
   top: 100px;
   left: 263px;
 }
-
+.story02:hover .text {
+  top: 265px;
+}
 .story03 {
-  top: 439px;
+  bottom: 213px;
   left: 242px;
+  transition-delay: 0.5s;
+}
+.story03.on {
+  bottom: 313px;
 }
 .story03 .text {
-  position: absolute;
-  top: 263px;
-  right: 264px;
+  top: 230px;
+  left: -173px;
   white-space: nowrap;
   transform: rotate(-90deg);
 }
-
+.story03:hover .text {
+  top: 125px;
+}
 .story04 {
-  top: 439px;
+  bottom: 713px;
+  left: 707px;
+  transition-delay: 0.8s;
+}
+.story04.on {
   left: 607px;
 }
 .story04 .text {
-  transform: translateX(100px) translateY(-5px);
+  bottom: -40px;
+  left: 167px;
+}
+.story04:hover .text {
+  left: 0px;
 }
 
 /* 
@@ -583,13 +632,17 @@ h2 {
 .footer {
   background: #333;
   text-align: center;
+  letter-spacing: -0.025em;
 }
 .footer .container {
-  padding-top: 90px;
+  padding-top: 70px;
 }
-
+.footer .sns {
+  display: flex;
+  justify-content: center;
+}
 .footer .sns i {
-  font-size: 30px;
+  font-size: 29px;
   padding: 5px;
   background: #aaa;
   border-radius: 50%;
@@ -601,23 +654,31 @@ h2 {
 .footer .sns a:hover i {
   background: #ffbc0d;
 }
-.footer p {
-  font-size: 13px;
-  padding-bottom: 10px;
-  color: rgb(159, 159, 159);
-}
-.footer p:nth-last-of-type(3) {
-  padding-bottom: 20px;
-}
-.footer p:nth-last-of-type(2) {
-  font-size: 19px;
-  font-weight: 400;
+.footer .tel {
+  font-size: 27px;
+  font-weight: 500;
   color: rgb(255, 255, 255);
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
-.footer p:last-child {
+.footer .terms {
+  color: rgb(185, 185, 185);
+  font-size: 15px;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+.footer .terms a {
+  margin: 0 3px;
+}
+.footer .rep p {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgb(155, 155, 155);
+  padding-bottom: 5px;
+}
+.footer .copy p {
   font-size: 12px;
   font-weight: 300;
-  color: rgb(159, 159, 159);
-  padding-bottom: 90px;
+  color: rgb(155, 155, 155);
+  padding-bottom: 70px;
+  letter-spacing: 0;
 }
