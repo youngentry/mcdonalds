@@ -72,30 +72,15 @@ $(function () {
     focusOnSelect: true,
   });
 
-  $(".process .textSlider").slick({
-    slidesToShow: 1,
+  // .process;;
+  $(".tabs li").on("click", function () {
+    var idx = $(this).index();
+    var info = $(".process .info").index();
+    console.log(info);
+    $(this).addClass("on").siblings().removeClass("on");
+    $(".visuals>ul>.info").eq(idx).addClass("on").siblings().removeClass("on");
   });
-  $(".process .rowSlider01").slick({
-    slidesToShow: 3,
-    arrows: false,
-  });
-  $(".process .rowSlider02").slick({
-    slidesToShow: 3,
-    rtl: true,
-    arrows: false,
-  });
-  $(".process .rowSlider03").slick({
-    slidesToShow: 3,
-    arrows: false,
-  });
-
-  $(".textSlider .slick-prev").on("click", () => {
-    $(".rowSlider01, .rowSlider02, .rowSlider03").slick("slickPrev");
-  });
-  $(".textSlider .slick-next").on("click", () => {
-    $(".rowSlider01, .rowSlider02, .rowSlider03").slick("slickNext");
-  });
-  $(".textSlider .slick-next").on("click", () => {});
+  // .process;;
 
   $(".pageNums li a").on("click", function (e) {
     e.preventDefault();
@@ -108,13 +93,13 @@ $(function () {
 
   $(window).on("scroll", () => {
     var screenHeight = $(window).scrollTop();
-    // console.log(screenHeight);
+    console.log(screenHeight);
     var promoPageTop = $(".promoPages .top li");
     var promoPageBottom = $(".promoPages .bottom li");
-    var promoHeight = 1600;
+    var promoHeight = 1900;
     var promoGap = 300;
     var brandStories = $(".story01, .story02, .story03, .story04");
-    var brandHeight = 2600;
+    var brandHeight = 2900;
     screenHeight >= promoHeight ? promoPageTop.addClass("on") : promoPageTop.removeClass("on");
     screenHeight >= promoHeight + promoGap ? promoPageBottom.addClass("on") : promoPageBottom.removeClass("on");
     screenHeight >= brandHeight ? brandStories.addClass("on") : brandStories.removeClass("on");
