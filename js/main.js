@@ -1,15 +1,16 @@
 $(function () {
+  // wheel event;;
   $("html, body").on("mousewheel", function (e) {
     var d = e.originalEvent.deltaY;
     if (d > 0) {
-      $(".header").addClass("on");
-      // console.log("내림");
+      $(".header").addClass("on"); // console.log("내림");
     } else if (d < 0) {
-      $(".header").removeClass("on");
-      // console.log("올림");
+      $(".header").removeClass("on"); // console.log("올림");
     }
   });
+  // wheel event;;
 
+  // .mainVisual;;
   function video(videoClass, videoURL, containmentClass, startAtTime, stopAtTime, playType) {
     $(videoClass).YTPlayer({
       videoURL: videoURL,
@@ -56,7 +57,9 @@ $(function () {
     var bgVideo = slider.children(".bgVideo");
     sliderBtn.hasClass("on") ? bgVideo.YTPPause() : bgVideo.YTPPlay();
   });
+  // .mainVisual;;
 
+  // .meal;;
   $(".mealSliderM").slick({
     asNavFor: ".mealSliderS",
     slidesToShow: 1,
@@ -71,6 +74,7 @@ $(function () {
     swipeToSlide: true,
     focusOnSelect: true,
   });
+  // .meal;;
 
   // .process;;
   $(".tabs li").on("click", function () {
@@ -82,6 +86,7 @@ $(function () {
   });
   // .process;;
 
+  // .promotion;;
   $(".pageNums li a").on("click", function (e) {
     e.preventDefault();
     $(this).parent().siblings().removeClass("on");
@@ -90,7 +95,9 @@ $(function () {
     $(".promoPages>div").removeClass("on");
     $(".promoPages>div").eq(idx).addClass("on");
   });
+  // .promotion;;
 
+  //scroll event;;
   $(window).on("scroll", () => {
     var screenHeight = $(window).scrollTop();
     console.log(screenHeight);
@@ -104,4 +111,5 @@ $(function () {
     screenHeight >= promoHeight + promoGap ? promoPageBottom.addClass("on") : promoPageBottom.removeClass("on");
     screenHeight >= brandHeight ? brandStories.addClass("on") : brandStories.removeClass("on");
   });
+  //scroll event;;
 });
